@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Караван — торговая стратегия</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-icon">🐫</span>
+    <span class="brand-text">
+      <b>КАРАВАН</b>
+      <small>торговая империя</small>
+    </span>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <span class="k">День</span>
+      <b id="stat-day">1</b><span class="muted" id="stat-days">/ 140</span>
+    </div>
+    <div class="stat">
+      <span class="k">Золото</span>
+      <b id="stat-gold" class="gold">500</b>
+    </div>
+    <div class="stat">
+      <span class="k">Груз</span>
+      <b id="stat-cargo">0/60</b>
+    </div>
+    <div class="stat stat-capital">
+      <span class="k">Капитал</span>
+      <b id="stat-capital">500</b>
+      <span class="muted" id="stat-target">/ 15 000</span>
+      <div class="progress"><i id="stat-progress"></i></div>
+    </div>
+    <div class="stat">
+      <span class="k">Репутация</span>
+      <b id="stat-rep">0</b>
+    </div>
+  </div>
+
+  <div class="actions">
+    <button class="btn" id="btn-caravan">🐪 Караван</button>
+    <button class="btn" id="btn-menu">☰ Меню</button>
+  </div>
+</header>
+
+<main class="board">
+  <section class="map-pane">
+    <svg id="map" viewBox="80 40 880 660" preserveAspectRatio="xMidYMid meet" aria-label="Карта торговых путей"></svg>
+    <div class="map-hint" id="map-hint">Соседние города подсвечены — нажми, чтобы отправиться</div>
+  </section>
+
+  <aside class="side-pane">
+    <section class="card" id="city-card"></section>
+    <div class="tabs" role="tablist">
+      <button class="tab is-active" data-action="tab" data-value="market" role="tab" aria-selected="true">Рынок</button>
+      <button class="tab" data-action="tab" data-value="contracts" role="tab" aria-selected="false">Контракты<span class="badge hidden" id="contract-badge">0</span></button>
+    </div>
+    <section class="card" id="market-card"></section>
+    <section class="card hidden" id="contracts-card"></section>
+  </aside>
+</main>
+
+<footer class="logbar">
+  <span class="log-label">ХРОНИКА</span>
+  <div id="log"></div>
+</footer>
+
+<div id="modal-root" class="modal-root hidden"></div>
+<div id="toast" class="toast"></div>
+<input type="file" id="import-file" accept=".json,application/json" hidden>
+
+<script src="js/data.js"></script>
+<script src="js/economy.js"></script>
+<script src="js/game.js"></script>
+<script src="js/save.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
